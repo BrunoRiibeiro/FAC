@@ -24,14 +24,13 @@ main:
 UN:	nor  $t3, $s1,   $zero
 	sltu $t3, $t3,   $s2
 	bne  $t3, $zero, OV
-	j    NO  
-OV:	li   $v0, 4
-	la   $a0, overflow
-	syscall
-	j    exit
 NO:	add  $t0, $s1,   $s2   
 	li   $v0, 1
 	move $a0, $t0
+	syscall
+	j    exit
+OV:	li   $v0, 4
+	la   $a0, overflow
 	syscall
 exit:
 	li   $v0, 4
