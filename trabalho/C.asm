@@ -29,7 +29,7 @@ main:
 	bne     $t7,  $zero, UN
 	slt     $t7,  $t1,   $t2
 	beq     $t7,  $zero, UN
-AG:	ldc1    $f2,  ten
+	ldc1    $f2,  ten
 	ldc1    $f4,  zero
 	ldc1    $f6,  one
 	ldc1    $f8,  one
