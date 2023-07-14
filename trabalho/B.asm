@@ -1,8 +1,7 @@
 .data
-	newline: .asciiz "\n"
-	invalid: .asciiz "Entrada invalida."
-	isprime: .asciiz "sim"
-	notprime: .asciiz "nao"
+	invalid: .asciiz "Entrada invalida.\n"
+	isprime: .asciiz "sim\n"
+	notprime: .asciiz "nao\n"
 .text
 main:		
 	li      $v0,5
@@ -28,19 +27,16 @@ L0:	bgt     $t2, $a1,   PR
 	addi    $t2, $t2,   2
 	jal     L0
 PR:	li      $v0, 4
-	la,     $a0, isprime
+	la      $a0, isprime
 	syscall
 	j       exit
 NP:	li      $v0, 4
-	la,     $a0, notprime
+	la      $a0, notprime
 	syscall
 	j       exit
 IN:	li      $v0, 4
-	la,     $a0, invalid
+	la      $a0, invalid
 	syscall
 exit:
-	li      $v0, 4
-	la      $a0, newline
-	syscall
 	li      $v0, 10
 	syscall
